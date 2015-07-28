@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "react": "^0.13.3",
+    "react-dropzone-component": "^0.4.4",
     "react-router": "^0.13.3"
   }
 }
