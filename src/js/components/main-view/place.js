@@ -13,11 +13,12 @@ var Place = React.createClass({
     render() {
         return (
             <div className="place-wrapper">
-                <Link to="place" params={{id: this.props.id}}>
+                <Link to="place" params={{id: this.props.id}} className="place-link">
                     <div className="place">
-                        <img className="place-img" src={this.props.imageUrl} />
+                        <header className="place-name">{this.props.name}</header>
+                        <img className="place-img" src={this.props.imageUrl || ''} />
                         <div>
-                            <p className="description">{this.props.description}</p>
+                            <p className="description">{this.props.description || 'pusto'}</p>
                         </div>
                     </div>
                 </Link>
