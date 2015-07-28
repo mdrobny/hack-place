@@ -55,7 +55,6 @@ var places = {
                 'Content-Type': 'application/json'
             }
         }, (err, res, body) => {
-            console.log('pluses');
             this.entries.pluses = JSON.parse(body);
             callback(err);
         });
@@ -68,7 +67,6 @@ var places = {
                 'Content-Type': 'application/json'
             }
         }, (err, res, body) => {
-            console.log('m');
             this.entries.minuses = JSON.parse(body);
             callback(err);
         });
