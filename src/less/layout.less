@@ -27,13 +27,24 @@
 .place-wrapper {
     margin: @standardPadding 0;
 
+    .place-link {
+        text-decoration: none;
+    }
+
     .place {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         align-items: center;
+        text-decoration: none;
+
+        .place-name {
+            font-size: @fontSizeMedium;
+            color: @darkOrange;
+        }
 
         .place-img {
             width: 120px;
+            max-height: 150px;
         }
 
         .description {

@@ -1,3 +1,5 @@
+import xhr from 'xhr';
+
 var places = {
 
     mockData: [
@@ -26,11 +28,24 @@ var places = {
             down: 10,
             id: 1
         }
-
     ],
 
+    entries: [],
+
+    fetchData(callback) {
+        xhr({
+            url: 'http://pdziok.vgnett.no/enably.ng-api/entries',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }, (err, res, body) => {
+            this.entries = JSON.parse(body);
+            callback();
+        });
+    },
+
     getData() {
-        return this.mockData;
+        return this.entries;
     }
 };
 
