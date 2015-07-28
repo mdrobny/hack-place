@@ -34,11 +34,12 @@ var places = {
 
     fetchData(callback) {
         if (this.entries.length) {
+            callback();
             return;
         }
 
         xhr({
-            url: 'http://pdziok.vgnett.no/enably.ng-api/entries',
+            url: 'http://pdziok.vgnett.no/enably.ng-api/entries?limit=4',
             headers: {
                 'Content-Type': 'application/json'
             }

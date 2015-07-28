@@ -16,9 +16,16 @@ var Place = React.createClass({
                 <Link to="place" params={{id: this.props.id}} className="place-link">
                     <div className="place">
                         <header className="place-name">{this.props.name}</header>
-                        <img className="place-img" src={this.props.imageUrl || ''} />
-                        <div>
-                            <p className="description">{this.props.description || 'pusto'}</p>
+                        <img className="place-img" src={this.props.imageUrl || 'http://img.wiocha.pl/images/d/f/df3cfb96adee2b7b56abe326b2c0ea3f.jpg'} />
+                        <div className="ratings">
+                            <div className="rating pluses">
+                                <img src="images/happy.png"/>
+                                <span className="rating-value">{this.props.rating.pluses}</span>
+                            </div>
+                            <div className="rating minuses">
+                                <img src="images/sad.png"/>
+                                <span className="rating-value">{this.props.rating.minuses}</span>
+                            </div>
                         </div>
                     </div>
                 </Link>
