@@ -8,7 +8,7 @@ var path = require('path');
 var livereload = require('gulp-livereload');
 var webpackConfig = require('./webpack.config');
 var WebpackDevServer = require('webpack-dev-server');
-    
+
 gulp.task('less', function() {
     return gulp.src('./src/less/main.less')
         .pipe(gulpPlumber(onStreamError))
