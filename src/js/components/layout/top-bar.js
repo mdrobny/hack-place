@@ -12,14 +12,13 @@ var TopBar = React.createClass({
             <div className="top-bar">
                 <div className="left-side">
                     <div className="logo">
-                        <Link to="home">Enajbli super logo skurwysynu</Link>
+                        <Link to="home"><img src="images/logo.png" alt="Enably.ng"/></Link>
                     </div>
                 </div>
-                <div className="right-side">
-                    <Link to="upload"><button className="button">dodaj focie</button></Link>
-                    <button className="button">zaloguj</button>
-                    <button className="button">zarejestruj</button>
+                <div>
+                    <Link to="upload" className="add-photo-link">Dodaj foto</Link>
                 </div>
+                <div className="right-side"></div>
             </div>
         );
     }

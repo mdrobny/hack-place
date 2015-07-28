@@ -33,6 +33,10 @@ var places = {
     entries: [],
 
     fetchData(callback) {
+        if (this.entries.length) {
+            return;
+        }
+
         xhr({
             url: 'http://pdziok.vgnett.no/enably.ng-api/entries',
             headers: {

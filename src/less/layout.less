@@ -1,24 +1,43 @@
 /* main styling */
 .wrapper {
 
+    .container {
+        padding: @standardPadding;
+    }
+
     .top-bar {
         display: flex;
+        flex-flow: center;
         flex-direction: row;
-        justify-content: space-between;
         background-color: @darkBlue;
         height: 60px;
         padding: @smallPadding;
         margin-bottom: @standardPadding;
         color: @white;
 
-        .button {
-            padding: @smallPadding @standardPadding;
-            margin: @smallPadding;
-            border: 1px solid @black;
+        .logo {
+            order: 1;
+            a {
+                color: @yellow;
+                text-decoration: none;
+                img {
+                    max-width: 190px;
+                }
+            }
         }
 
-        .container {
-            padding: @standardPadding;
+        .add-photo-link {
+            height: 50px;
+            padding-top: @standardPadding;
+            order: 2;
+            flex-grow: 2;
+            font-size: @fontSizeMedium;
+            color: @yellow;
+            text-decoration: none;
+        }
+
+        .right-side {
+            order: 3;
         }
     }
 }
@@ -39,7 +58,7 @@
 
         .place-name {
             font-size: @fontSizeMedium;
-            color: @darkOrange;
+            color: @yellow;
         }
 
         .place-img {
