@@ -24,8 +24,6 @@ var UploadView = React.createClass({
         this.setState({
             imageId: response.id
         });
-
-        console.log('image id', response.id);
     },
 
     onLocateMeClick() {
@@ -88,7 +86,6 @@ var UploadView = React.createClass({
                 'image_id': this.state.imageId
             });
         }
-        debugger;
     },
 
     render() {
