@@ -1,5 +1,6 @@
 import React from 'react';
 import PlaceList from './main-view/place-list';
+import Map from './main-view/map';
 
 var MainView = React.createClass({
     displayName: 'MainView',
@@ -11,8 +12,8 @@ var MainView = React.createClass({
                     <div className="pure-u-6-24 col">
                         <PlaceList />
                     </div>
-                    <div className="pure-u-12-24 col">
-                        <div><p>Here goes content</p></div>
+                    <div className="pure-u-12-24 col map">
+                        <Map />
                     </div>
                     <div className="pure-u-6-24 col">
                         <PlaceList />
