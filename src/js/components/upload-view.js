@@ -1,8 +1,10 @@
 import React from 'react';
 import places from '../utils/places';
 import DropzoneComponent from 'react-dropzone-component';
+import {Navigation} from 'react-router';
 
 var UploadView = React.createClass({
+    mixins: [Navigation],
     displayName: 'UploadView',
     getInitialState() {
         return {
@@ -84,6 +86,8 @@ var UploadView = React.createClass({
                 longitude: this.state.coords.longitude,
                 description: this.state.comment,
                 'image_id': this.state.imageId
+            }, (err, data) => {
+                this.transitionTo('home')
             });
         }
     },
