@@ -86,8 +86,10 @@ var UploadView = React.createClass({
                 longitude: this.state.coords.longitude,
                 description: this.state.comment,
                 'image_id': this.state.imageId
-            }, (err, data) => {
-                this.transitionTo('home')
+            }, (err) => {
+                if (!err) {
+                    this.transitionTo('home');
+                }
             });
         }
     },
