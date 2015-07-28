@@ -27,7 +27,9 @@ var places = {
                 'Content-Type': 'application/json'
             }
         }, (err, res, body) => {
-            this.entries.pluses = JSON.parse(body);
+            if (this.entries.pluses.length === 0) {
+                this.entries.pluses = JSON.parse(body);
+            }
             callback(err);
         });
     },
@@ -39,7 +41,9 @@ var places = {
                 'Content-Type': 'application/json'
             }
         }, (err, res, body) => {
-            this.entries.minuses = JSON.parse(body);
+            if (this.entries.minuses.length === 0) {
+                this.entries.minuses = JSON.parse(body);
+            }
             callback(err);
         });
     },

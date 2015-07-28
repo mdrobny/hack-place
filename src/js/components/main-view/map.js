@@ -9,7 +9,7 @@ class SimpleClickEvent extends React.Component {
 
 
         this.state = {
-            zoom: 12,
+            zoom: 13,
             center: new google.maps.LatLng(50.072962, 19.891600),
             timeoutId: null,
             googleMapsApi: null,
