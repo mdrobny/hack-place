@@ -14,11 +14,10 @@ var webpackConfig = {
     },
     module: {
         loaders: [
-            { test: /\.js$/, loader: 'babel-loader', exclude: /(node_modules|public)/,
-                query: {
-                    stage: 0,
-                    cacheDirectory: true
-                }
+            {
+                test: /\.js$/,
+                loader: 'babel-loader',
+                exclude: /(node_modules|public)/
             }
         ]
     }
