@@ -6,3 +6,4 @@ Hackday '15 project
 * npm install
 * gulp webpack-dev-server - to run server
 * gulp - to run less watcher
+* 
