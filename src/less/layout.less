@@ -1,0 +1,37 @@
+.container {
+    padding: @standardPadding;
+}
+
+.top-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: @darkGray;
+    height: 60px;
+    padding: @smallPadding;
+    margin-bottom: @standardPadding;
+
+    .button {
+        padding: @smallPadding @standardPadding;
+        margin: @smallPadding;
+        border: 1px solid @black;
+    }
+}
+
+.place-wrapper {
+    margin: @standardPadding 0;
+
+    .place {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .place-img {
+            width: 120px;
+        }
+
+        .description {
+            padding-left: @standardPadding;
+        }
+    }
+}
