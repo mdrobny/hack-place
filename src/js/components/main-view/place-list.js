@@ -5,23 +5,31 @@ import Place from './place';
 
 var PlaceList = React.createClass({
     displayName: 'PlaceList',
+    propTypes: {
+        type: React.PropTypes.string
+    },
 
     getInitialState() {
+        var places = placesStore.getData();
+        places = places[this.props.type];
         return {
-            places: placesStore.getData()
+            places: places
         };
     },
 
-    componentWillMount() {
+    componentDidMount() {
         placesStore.fetchData(() => {
-            this.setState({places: placesStore.getData()});
+            var places = placesStore.getData();
+            places = places[this.props.type];
+            this.setState({places: places});
         });
     },
 
     render() {
-        console.log(this.state);
+        var title = (this.props.type === 'pluses') ? 'Najlepsze' : 'Najgorsze';
         return (
-            <div className="list">
+            <div className="places-list">
+                <header className="places-list-header">{title}</header>
                 {this.state.places.map((place) =>
                     <Place {...place} />
                 )}

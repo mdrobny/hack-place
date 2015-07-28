@@ -10,13 +10,13 @@ var MainView = React.createClass({
             <div>
                 <div className="pure-g">
                     <div className="pure-u-6-24 col">
-                        <PlaceList />
+                        <PlaceList type="pluses"/>
                     </div>
                     <div className="pure-u-12-24 col map">
                         <Map />
                     </div>
                     <div className="pure-u-6-24 col">
-                        <PlaceList />
+                        <PlaceList type="minuses" />
                     </div>
                 </div>
             </div>
