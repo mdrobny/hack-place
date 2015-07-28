@@ -1,0 +1,9 @@
+{
+  "extends": "./node_modules/vgno-coding-standards/.eslintrc-react",
+  "env": {
+      "es6": true
+  },
+  "ecmaFeatures": {
+      "modules": true
+  }
+}
