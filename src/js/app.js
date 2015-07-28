@@ -1,13 +1,13 @@
 import React from 'react';
-
 import Router from 'react-router';
+import Layout from './components/layout';
+
 var Route = Router.Route;
 var RouteHandler = Router.RouteHandler;
 var DefaultRoute = Router.DefaultRoute;
 var NotFoundRoute = Router.NotFoundRoute;
-var Redirect = Router.Redirect;
 
-var VGLive = React.createClass({
+var App = React.createClass({
     displayName: 'HackPlace',
 
     render() {
@@ -20,10 +20,9 @@ var VGLive = React.createClass({
 });
 
 var routes = (
-    <Route name="root" path="/" handler={VGLive}>
+    <Route name="root" path="/" handler={App}>
         <DefaultRoute name="home" handler={EventSchedule} />
         <Route name="place" path="place/:id" handler={EventHandler} />
-        <NotFoundRoute handler={ErrorPage} />
     </Route>
 );
 
@@ -33,4 +32,4 @@ if (typeof window !== 'undefined') {
     });
 }
 
-export default VGLive;
+export default App;
