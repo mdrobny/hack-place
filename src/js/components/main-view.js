@@ -8,13 +8,13 @@ var MainView = React.createClass({
         return (
             <div>
                 <div className="pure-g">
-                    <div className="pure-u-6-24">
+                    <div className="pure-u-6-24 col">
                         <PlaceList />
                     </div>
-                    <div className="pure-u-12-24">
+                    <div className="pure-u-12-24 col">
                         <div><p>Here goes content</p></div>
                     </div>
-                    <div className="pure-u-6-24">
+                    <div className="pure-u-6-24 col">
                         <PlaceList />
                     </div>
                 </div>

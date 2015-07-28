@@ -1,5 +1,5 @@
 import React from 'react';
-import TopBar from './top-bar';
+import TopBar from './layout/top-bar';
 
 var Layout = React.createClass({
     displayName: 'Layout',
@@ -9,9 +9,11 @@ var Layout = React.createClass({
 
     render() {
         return (
-            <div className="container">
+            <div className="wrapper">
                 <TopBar />
-                {this.props.children}
+                <div className="container">
+                    {this.props.children}
+                </div>
             </div>
         );
     }

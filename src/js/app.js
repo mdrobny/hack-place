@@ -3,6 +3,7 @@ import Router from 'react-router';
 import Layout from './components/layout';
 import MainView from './components/main-view';
 import PlaceView from './components/place';
+import UploadView from './components/upload-photo';
 
 var Route = Router.Route;
 var RouteHandler = Router.RouteHandler;
@@ -25,6 +26,7 @@ var routes = (
     <Route name="root" path="/" handler={App}>
         <DefaultRoute name="home" handler={MainView} />
         <Route name="place" path="place/:id" handler={PlaceView} />
+        <Route name="upload" path="upload-photo" handler={UploadView} />
     </Route>
 );
 

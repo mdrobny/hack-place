@@ -6,6 +6,7 @@ var PlaceView = React.createClass({
     render() {
         return (
             <div>
+                <p>tutaj widok miejsca</p>
             </div>
         );
     }

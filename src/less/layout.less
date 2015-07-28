@@ -1,20 +1,24 @@
-.container {
-    padding: @standardPadding;
-}
+.wrapper {
 
-.top-bar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background-color: @darkGray;
-    height: 60px;
-    padding: @smallPadding;
-    margin-bottom: @standardPadding;
 
-    .button {
-        padding: @smallPadding @standardPadding;
-        margin: @smallPadding;
-        border: 1px solid @black;
+    .top-bar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: @darkGray;
+        height: 60px;
+        padding: @smallPadding;
+        margin-bottom: @standardPadding;
+
+        .button {
+            padding: @smallPadding @standardPadding;
+            margin: @smallPadding;
+            border: 1px solid @black;
+        }
+
+        .container {
+            padding: @standardPadding;
+        }
     }
 }
 
