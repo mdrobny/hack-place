@@ -74,10 +74,21 @@ var places = {
         });
     },
 
+    saveEntry(data, callback) {
+        xhr.post({
+            url: 'http://pdziok.vgnett.no/enably.ng-api/entries',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            params: data
+        }, (err, res, body) => {
+            callback(err, body);
+        });
+    },
+
     getData() {
         return this.entries;
     }
 };
-
 
 export default places;
