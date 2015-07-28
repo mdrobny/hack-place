@@ -49,12 +49,13 @@ var places = {
     },
 
     saveEntry(data, callback) {
-        xhr.post({
+        xhr({
             url: 'http://pdziok.vgnett.no/enably.ng-api/entries',
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            params: data
+            json: data
         }, (err, res, body) => {
             callback(err, body);
         });
