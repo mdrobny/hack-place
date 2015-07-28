@@ -1,14 +1,14 @@
 'use strict';
 
-var gulp = require('gulp'),
-    webpack = require('webpack'),
-    less = require('gulp-less'),
-    path = require('path'),
-    livereload = require('gulp-livereload'),
-    webpackConfig = require('./webpack.config');
+var gulp = require('gulp');
+var webpack = require('webpack');
+var less = require('gulp-less');
+var gulpPlumber = require('gulp-plumber');
+var path = require('path');
+var livereload = require('gulp-livereload');
+var webpackConfig = require('./webpack.config');
 var WebpackDevServer = require('webpack-dev-server');
     
-
 gulp.task('less', function() {
     return gulp.src('./src/less/main.less')
         .pipe(gulpPlumber(onStreamError))
@@ -19,24 +19,20 @@ gulp.task('less', function() {
         .pipe(livereload());
 });
 
-gulp.task('webpack', function() {
-    return gulp.src('./src/js/app.js')
-        .pipe(gulpPlumber(onStreamError))
-        .pipe(webpack(require('./webpack.config.js')))
-        .pipe(gulp.dest('./public/js'))
-        .pipe(livereload());
-});
-
 gulp.task('watch', function() {
     livereload.listen();
     gulp.watch('./src/less/**/*.less', ['less']);
-    gulp.watch(['./src/js/**/*.js'], ['webpack']);
 });
 
 gulp.task('webpack-dev-server', function() {
     var compiler = webpack(webpackConfig);
 
-
+    new WebpackDevServer(compiler, {
+        contentBase: 'public',
+        stats: { colors: true }
+    }).listen(8080, 'localhost', function(err) {
+            console.log('Server started');
+        });
 });
 
 // Display error message but continue watching
@@ -45,14 +41,4 @@ function onStreamError(err) {
     this.emit('end'); // End task causing error
 }
 
-
-
-// Kill server application if error is not handled
-//process.on('uncaughtException', function(err) {
-//    console.log('Caught exception: ' + err);
-//    if (appServer) {
-//        appServer.kill();
-//    }
-//});
-
-gulp.task('default', ['less', 'webpack', 'watch'], function() {});
+gulp.task('default', ['less', 'watch'], function() {});
