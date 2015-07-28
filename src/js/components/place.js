@@ -2,11 +2,15 @@ import React from 'react';
 
 var PlaceView = React.createClass({
     displayName: 'PlaceView',
+    propTypes: {
+        entryId: React.PropTypes.number
+    },
 
     render() {
         return (
-            <div>
-                <p>tutaj widok miejsca</p>
+            <div className="place-view">
+                <div className="place-img">
+                </div>
             </div>
         );
     }
