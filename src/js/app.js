@@ -1,6 +1,8 @@
 import React from 'react';
 import Router from 'react-router';
 import Layout from './components/layout';
+import MainView from './components/main-view';
+import PlaceView from './components/place';
 
 var Route = Router.Route;
 var RouteHandler = Router.RouteHandler;
@@ -21,8 +23,8 @@ var App = React.createClass({
 
 var routes = (
     <Route name="root" path="/" handler={App}>
-        <DefaultRoute name="home" handler={EventSchedule} />
-        <Route name="place" path="place/:id" handler={EventHandler} />
+        <DefaultRoute name="home" handler={MainView} />
+        <Route name="place" path="place/:id" handler={PlaceView} />
     </Route>
 );
 
