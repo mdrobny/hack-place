@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router';
 
 var TopBar = React.createClass({
     displayName: 'TopBar',
@@ -10,10 +11,12 @@ var TopBar = React.createClass({
         return (
             <div className="top-bar">
                 <div className="left-side">
-                    <div className="logo">Enajbli super logo skurwysynu</div>
+                    <div className="logo">
+                        <Link to="home">Enajbli super logo skurwysynu</Link>
+                    </div>
                 </div>
                 <div className="right-side">
-                    <button className="button">dodaj focie</button>
+                    <Link to="upload"><button className="button">dodaj focie</button></Link>
                     <button className="button">zaloguj</button>
                     <button className="button">zarejestruj</button>
                 </div>

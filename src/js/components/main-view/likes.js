@@ -1,7 +1,7 @@
 import React from 'react';
 
-var Place = React.createClass({
-    displayName: 'Place',
+var Likes = React.createClass({
+    displayName: 'Likes',
 
     propTypes: {
         imageUrl: React.PropTypes.string,
@@ -10,16 +10,16 @@ var Place = React.createClass({
 
     render() {
         return (
-            <div className="place-wrapper">
-                <div className="place">
-                    <img className="place-img" src={this.props.imageUrl} />
-                    <div>
-                        <p className="description">{this.props.description}</p>
-                    </div>
+            <div className="place-likes">
+                <div>
+                    <span>+5</span>
+                </div>
+                <div>
+                    <span>-7</span>
                 </div>
             </div>
         );
     }
 });
 
-export default Place;
+export default Likes;
