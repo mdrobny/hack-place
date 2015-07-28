@@ -2,8 +2,8 @@ import React from 'react';
 import Router from 'react-router';
 import Layout from './components/layout';
 import MainView from './components/main-view';
+import UploadView from './components/upload-view';
 import PlaceView from './components/place';
-import UploadView from './components/upload-photo';
 
 var Route = Router.Route;
 var RouteHandler = Router.RouteHandler;
@@ -31,7 +31,7 @@ var routes = (
 );
 
 if (typeof window !== 'undefined') {
-    Router.run(routes, Router.HistoryLocation, (Root) => {
+    Router.run(routes, Router.HashLocation, (Root) => {
         React.render(<Root />, document.getElementById('root'));
     });
 }
