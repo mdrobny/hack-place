@@ -1,5 +1,6 @@
 /* main styling */
 .wrapper {
+    width: 100%;
 
     .container {
         padding: @standardPadding;
@@ -7,37 +8,43 @@
 
     .top-bar {
         display: flex;
-        flex-flow: center;
-        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: center;
         background-color: @darkBlue;
         height: 60px;
         padding: @smallPadding;
         margin-bottom: @standardPadding;
         color: @white;
 
-        .logo {
-            order: 1;
+        .top-bar-element {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            flex: 2;
+        }
+
+        .upload-btn {
+            background-color: @yellow;
+            height: 40px;
+
             a {
-                color: @yellow;
+                display: block;
+                color: @darkBlue;
                 text-decoration: none;
+                font-weight: bold;
+                padding: @standardPadding @bigPadding;
+            }
+        }
+
+        .logo {
+            a {
+                text-decoration: none;
+
                 img {
                     max-width: 190px;
                 }
             }
-        }
-
-        .add-photo-link {
-            height: 50px;
-            padding-top: @standardPadding;
-            order: 2;
-            flex-grow: 2;
-            font-size: @fontSizeMedium;
-            color: @yellow;
-            text-decoration: none;
-        }
-
-        .right-side {
-            order: 3;
         }
     }
 }
@@ -107,17 +114,12 @@
 }
 
 /*single place view */
-.place-wrapper {
-    display: flex;
-    justify-content: center;
+.place-view {
 
-    .place-view {
+    .place-img {
 
-        .place-img {
-
-            img {
-                width: 350px;
-            }
+        img {
+            width: 450px;
         }
     }
 }
