@@ -1,14 +1,18 @@
 import React from 'react';
 import {GoogleMaps, Marker, InfoWindow} from 'react-google-maps';
+import placesStore from '../../utils/places';
 
 class SimpleClickEvent extends React.Component {
 
     constructor (...args) {
         super(...args);
+
+
         this.state = {
-            zoom: 14,
+            zoom: 12,
             center: new google.maps.LatLng(50.072962, 19.891600),
             timeoutId: null,
+            googleMapsApi: null,
             markers: [
                 {
                     position: {
@@ -32,6 +36,24 @@ class SimpleClickEvent extends React.Component {
                 }
             ]
         };
+    }
+
+    componentWillMount () {
+        placesStore.fetchData(() => {
+            var places = placesStore.getData();
+            places = places.pluses.concat(places.minuses);
+
+            places = places.map(place => {
+                place.showInfo = false;
+                place.content = place.description;
+                return place;
+            });
+
+            this.setState({
+                markers: places,
+                googleMapsApi: google.maps
+            });
+        });
     }
 
     onMarkerClick (marker) {
@@ -77,7 +99,8 @@ class SimpleClickEvent extends React.Component {
                         height: "100%"
                     }
                 }}
-                ref="map" googleMapsApi={google.maps}
+                ref="map"
+                googleMapsApi={this.state.googleMapsApi}
                 zoom={state.zoom} center={state.center} >
 
                 {this.state.markers.map(this.renderMarker, this)}

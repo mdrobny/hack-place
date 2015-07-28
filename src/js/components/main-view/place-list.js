@@ -3,6 +3,8 @@ import placesStore from '../../utils/places';
 
 import Place from './place';
 
+var imgUrl = 'http://pdziok.vgnett.no/enably.ng-api/upload/';
+
 var PlaceList = React.createClass({
     displayName: 'PlaceList',
     propTypes: {
@@ -17,10 +19,15 @@ var PlaceList = React.createClass({
         };
     },
 
-    componentDidMount() {
+    componentWillMount() {
         placesStore.fetchData(() => {
             var places = placesStore.getData();
             places = places[this.props.type];
+
+            places = places.map(place => {
+                place.imageUrl = imgUrl + place.image.filename;
+                return place;
+            });
             this.setState({places: places});
         });
     },

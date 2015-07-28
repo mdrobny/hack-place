@@ -3,39 +3,11 @@ import xhr from 'xhr';
 var apiUrl = 'http://pdziok.vgnett.no/enably.ng-api/';
 
 var places = {
-
-    mockData: [
-        {
-            description: 'asdf asdf asdf asdf asdf asdf asdf jk;lk jkl;j asdf ',
-            imageUrl: 'http://g.wieszjak.pl/p/_wspolne/pliki_infornext/8000/8016.jpg',
-            up: 5,
-            down: 10,
-            id: 1
-        }, {
-            description: 'asdf asdf asdf asdf asdf asdf asdf jk;lk jkl;j asdf ',
-            imageUrl: 'http://g.wieszjak.pl/p/_wspolne/pliki_infornext/8000/8016.jpg',
-            up: 5,
-            down: 10,
-            id: 1
-        }, {
-            description: 'asdf asdf asdf asdf asdf asdf asdf jk;lk jkl;j asdf ',
-            imageUrl: 'http://g.wieszjak.pl/p/_wspolne/pliki_infornext/8000/8016.jpg',
-            up: 5,
-            down: 10,
-            id: 1
-        }, {
-            description: 'asdf asdf asdf asdf asdf asdf asdf jk;lk jkl;j asdf ',
-            imageUrl: 'http://g.wieszjak.pl/p/_wspolne/pliki_infornext/8000/8016.jpg',
-            up: 5,
-            down: 10,
-            id: 1
-        }
-    ],
-
     entries: {
         pluses: [],
         minuses: []
     },
+    activeEntry: {},
 
     fetchData(callback) {
         if (this.entries.pluses.length) {
@@ -55,7 +27,6 @@ var places = {
                 'Content-Type': 'application/json'
             }
         }, (err, res, body) => {
-            console.log('pluses');
             this.entries.pluses = JSON.parse(body);
             callback(err);
         });
@@ -68,7 +39,6 @@ var places = {
                 'Content-Type': 'application/json'
             }
         }, (err, res, body) => {
-            console.log('m');
             this.entries.minuses = JSON.parse(body);
             callback(err);
         });
@@ -85,6 +55,23 @@ var places = {
         }, (err, res, body) => {
             callback(err, body);
         });
+    },
+
+    fetchOne(entryId, callback) {
+        xhr({
+            url: apiUrl + 'entries/' + entryId,
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }, (err, res, body) => {
+            console.log('m');
+            this.activeEntry = JSON.parse(body);
+            callback(err);
+        });
+    },
+
+    getOne() {
+        return this.activeEntry;
     },
 
     getData() {
