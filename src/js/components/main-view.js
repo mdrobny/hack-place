@@ -1,5 +1,6 @@
 import React from 'react';
-import Map from './home/map';
+import PlaceList from './main-view/place-list';
+import Map from './main-view/map';
 
 var MainView = React.createClass({
     displayName: 'MainView',

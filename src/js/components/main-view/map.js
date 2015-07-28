@@ -1,5 +1,5 @@
-import React from "react/addons";
-import {GoogleMaps, Marker, InfoWindow} from "react-google-maps";
+import React from 'react';
+import {GoogleMaps, Marker, InfoWindow} from 'react-google-maps';
 
 class SimpleClickEvent extends React.Component {
 
